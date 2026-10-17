@@ -98,21 +98,19 @@ app.delete('/api/portfolio/:id', (req, res) => {
     });
 });
 
-// Root Home Route
-app.get('/', (req, res) => {
-    res.send('Portfolio API Backend is running successfully!');
-});
 
-// Start Server
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+
 const path = require('path');
 
-// Serve all static web files (index.html, CSS, client JavaScript)
-app.use(express.static(path.join(__dirname, '..'))); 
+// Serve all static web files from the frontend folder
+app.use(express.static(path.join(__dirname, '..', 'frontend')));
 
 // Serve index.html when visiting the main root link
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'index.html'));
+    res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
+});
+
+// Start Server (Keep this at the very bottom)
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 });
