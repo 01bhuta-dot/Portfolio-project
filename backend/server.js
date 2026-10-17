@@ -92,6 +92,11 @@ app.delete('/api/portfolio/:id', (req, res) => {
     });
 });
 
+// Root Home Route
+app.get('/', (req, res) => {
+    res.send('Portfolio API Backend is running successfully!');
+});
+
 // Start Server
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
