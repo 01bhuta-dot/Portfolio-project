@@ -6,11 +6,18 @@ const db = require('./db');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
+s
 // Middleware
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from the frontend folder
+app.use(express.static(path.join(__dirname, '..', 'frontend')));
+
+// Serve index.html on the root URL
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
+});
 // Initialize Database Table and Seed Data from schema.sql
 const schemaPath = path.join(__dirname, 'schema.sql');
 const schemaSql = fs.readFileSync(schemaPath, 'utf8');
@@ -100,4 +107,13 @@ app.get('/', (req, res) => {
 // Start Server
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
+});
+const path = require('path');
+
+// Serve all static web files (index.html, CSS, client JavaScript)
+app.use(express.static(path.join(__dirname, '..'))); 
+
+// Serve index.html when visiting the main root link
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'index.html'));
 });

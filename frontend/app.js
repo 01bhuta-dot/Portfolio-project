@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/api/portfolio';
+const API_URL = 'https://portfolio-project-n7e3.onrender.com/api/portfolio';
 
 const portfolioForm = document.getElementById('portfolio-form');
 const projectsContainer = document.getElementById('projects-container');
