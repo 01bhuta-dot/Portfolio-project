@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Management - ICT251</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gloria's Portfolio Projects</h1>
+            <p>ICT251 Web Development & Database Management</p>
+        </header>
+
+        <section class="form-section">
+            <h2>Add New Project</h2>
+            <form id="portfolio-form">
+                <input type="hidden" id="record-id">
+                <div class="form-group">
+                    <label for="owner-name">Portfolio Owner Name:</label>
+                    <input type="text" id="owner-name" name="owner_name" required placeholder="Enter portfolio owner name">
+                </div>
+                <button type="submit" class="btn-submit">Save Portfolio Record</button>
+            </form>
+        </section>
+
+        <section class="list-section">
+            <h2>Portfolio Records</h2>
+            <div id="portfolio-list">
+                <!-- Records will be dynamically loaded here by app.js -->
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
